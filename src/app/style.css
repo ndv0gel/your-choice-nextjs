@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+:root {
+    --irish-green: #2d5016;
+    --gold: #d4af37;
+    --cream: #f5f5dc;
+    --dark: #1a1a1a;
+}
+
+body {
+    font-family: 'Libre Baskerville', serif;
+    line-height: 1.6;
+}
+
+/* Global Fixed Navigation */
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    z-index: 1050; /* Ensure it's above other content */
+}
+
+.custom-transparent-nav {
+    background: rgba(0,0,0,0.6) !important; /* More transparency for the fixed nav */
+    backdrop-filter: blur(5px);
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--gold) !important;
+}
+
+.logo-text {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(rgba(45,80,22,0.7), rgba(26,26,26,0.8)),
+                url('/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem; /* Space for fixed nav */
+}
+
+.hero-main-logo {
+    max-width: 780px; /* Adjust based on your logo image size */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Feature Cards */
+#features {
+    background: var(--cream);
+    position: relative;
+    z-index: 2;
+    margin-top: -100px;
+    padding-top: 150px;
+}
+
+.feature-card {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 1;
+}
+
+.live-music-card {
+    background-image: url('/images/live-music-bg.jpg');
+}
+
+.menu-card {
+    background-image: url('/images/menu-bg.jpg');
+}
+
+.reservation-card {
+    background-image: url('/images/reservation-bg.jpg');
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.feature-card .card-body {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+.feature-card .card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.2;
+}
+
+/* Combined Reviews & About Content Section */
+#reviews-about-combined-section {
+    background: linear-gradient(rgba(26,26,26,0.8), rgba(45,80,22,0.7)), /* Darker overlay for text readability */
+                url('/images/about-bg.jpg'); /* This is the background image for this whole section */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    min-height: 800px; /* Increased height to accommodate content */
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-guru-badge {
+    width: 200px;
+    height: 200px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.badge-inner {
+    width: 180px;
+    height: 180px;
+    background: var(--dark);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid var(--gold);
+}
+
+.badge-text-top {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+}
+.badge-text-middle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+.badge-text-bottom {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.5rem;
+}
+
+
+.reviews-box {
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Ensure text in reviews box is dark and readable */
+.reviews-box .text-dark {
+    color: var(--dark) !important;
+}
+.reviews-box .text-muted {
+    color: rgba(0,0,0,0.7) !important; /* Ensure this text is dark */
+}
+.reviews-box .blockquote-footer {
+    color: var(--irish-green) !important; /* Darker green for contrast */
+}
+
+
+.carousel-indicators button {
+    background-color: var(--gold);
+    border: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.carousel-indicators button.active {
+    background-color: var(--irish-green);
+}
+
+.review-logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.review-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Map Section */
+.map-section {
+    position: relative;
+    background: var(--cream);
+    padding-top: 0; /* No padding at top, navigation is global */
+}
+
+/* Footer */
+.footer-section {
+    position: relative;
+    background: var(--dark);
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.footer-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.9)),
+                url('/images/footer-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.footer-section .container {
+    position: relative;
+    z-index: 2;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+
+.footer-section h5, 
+.footer-section h6 {
+    color: var(--gold) !important;
+}
+
+.footer-logo h2 {
+    color: white !important;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+.footer-logo p {
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+}
+
+.letter-spacing {
+    letter-spacing: 4px;
+}
+
+.social-links .social-icon {
+    color: rgba(255,255,255,0.8);
+    transition: all 0.3s ease;
+}
+
+.social-links .social-icon:hover {
+    color: var(--gold);
+    transform: scale(1.2);
+}
+
+/* Payment and Messaging Icons */
+.payment-logo img,
+.messaging-logo img {
+    height: 80px; /* Adjust size as needed */
+    width: auto;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.payment-logo img:hover,
+.messaging-logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.back-to-top .btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Buttons */
+.btn-light {
+    background-color: var(--cream);
+    border-color: var(--gold);
+    color: var(--dark);
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+
+    .hero-section {
+        padding-top: 4rem; /* Adjust for smaller fixed nav */
+    }
+    
+    .feature-card {
+        height: 300px;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-section,
+    #reviews-about-combined-section, /* Apply scroll to new combined section */
+    .footer-section {
+        background-attachment: scroll; /* Disable fixed backgrounds on mobile */
+    }
+    
+    .footer-logo h2 {
+        font-size: 2rem;
+    }
+    
+    .payment-logo img,
+    .messaging-logo img {
+        height: 60px; /* Smaller icons on mobile */
+        padding: 8px;
+    }
+
+    .restaurant-guru-badge {
+        width: 160px;
+        height: 160px;
+    }
+    .badge-inner {
+        width: 140px;
+        height: 140px;
+    }
+    .badge-text-top {
+        font-size: 0.7rem;
+    }
+    .badge-text-middle {
+        font-size: 0.8rem;
+    }
+    .badge-text-bottom {
+        font-size: 0.6rem;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
